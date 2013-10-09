@@ -1,0 +1,2767 @@
+/*
+CS371p: Quiz #1 (5 pts) <Aizuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. List any piece of advice.
+    [The Harvard Guide to Collegiate Happiness]
+    (2 pts)
+
+meet the faculty
+take a mix of courses
+study in groups
+write, write, write
+speak another language
+manage time
+participate in extracurricular activities
+*/
+
+/* -----------------------------------------------------------------------
+ 2. List any piece of advice.
+    [Advice for Computer Science College Students]
+    (2 pts)
+
+write
+learn C
+learn microeconomics
+excel in non-CS classes
+take programming-intensive classes
+stop worrying about jobs going to India
+get a good summer internship
+*/
+/*
+CS371p: Quiz #10 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. In the paper, "A Bug and a Crash" about the Ariane 5, what was the
+    software bug?
+    (1 pt)
+
+the conversion of a 64-bit number to a 16-bit number
+*/
+
+/* -----------------------------------------------------------------------
+ 2. In the paper, "Mariner 1", what was the software bug?
+    (1 pt)
+
+the ommission of a hyphen
+*/
+
+/* -----------------------------------------------------------------------
+ 3. In C++, for the '<<' operator that is defined on 'int', what is
+    the l-value / r-value nature of the return, the left argument, and
+    the right argument?
+    (1 pt)
+
+r-value, r-value, r-value
+*/
+
+/* -----------------------------------------------------------------------
+ 4. In C++, for the '<<=' operator that is defined on 'int', what is
+    the l-value / r-value nature of the return, the left argument, and
+    the right argument?
+    (1 pt)
+
+l-value, l-value, r-value
+*/
+/*
+CS371p: Quiz #11 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What are the two reasons to use inheritance?
+    [Sec. 8.1.2, Pg. 163]
+    (2 pts)
+
+code    reuse (implementation)
+concept reuse (interface)
+*/
+
+/* -----------------------------------------------------------------------
+ 2. With regards to inheritance describe the two types of object-oriented
+    languages?
+    [Sec. 8.2, Pg. 164]
+    (2 pts)
+
+all classes        extend directly or indirectly from a common root (Java)
+all classes do not extend directly or indirectly from a common root (C++)
+*/
+/*
+CS371p: Quiz #12 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What is the output of the following?
+    (4 pts)
+
+3 true
+*/
+
+#include <iostream> // cout, endl
+
+int main () {
+    using namespace std;
+    cout << boolalpha;   // bool outputs as true or false
+
+    {
+    int   i  = 2;
+    int*  p  = &i;
+    int** pp = &p;
+    int** qq = pp;
+    ++**qq;
+    cout << i          << " ";
+    ++qq;
+    cout << (pp == &p) << endl;
+    }
+
+    return 0;}
+/*
+CS371p: Quiz #13 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. Fill in the TWO blanks below:
+    [The Open-Closed Principle]
+    (2 pts)
+
+    Software entities (classes, modules, functions, etc.) should be open
+    for <BLANK>, but closed for <BLANK>.
+
+extension
+modification
+*/
+
+/* -----------------------------------------------------------------------
+ 2. What is the output of the following?
+    (2 pts)
+
+3 false
+*/
+
+#include <iostream> // cout, endl
+
+int main () {
+    using namespace std;
+    cout << boolalpha;   // bool outputs as true or false
+
+    {
+    int    i  = 2;
+    int*   p  = &i;
+    int**  pp = &p;
+    int**& qq = pp;
+    ++**qq;
+    cout << i          << " ";
+    ++qq;
+    cout << (pp == &p) << endl;
+    }
+
+    return 0;}
+/*
+CS371p: Quiz #14 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What is the output of the following?
+    (4 pts)
+
+3 false
+3 true
+*/
+
+#include <iostream> // boolalpha, cout, endl
+
+int*& f (int*& r) {
+    ++*r;
+    return r;}
+
+int main () {
+    using namespace std;
+    cout << boolalpha;   // bool outputs as true or false
+
+    {
+    int  i = 2;
+    int* p = &i;
+    int* q = f(p);
+    cout << i          << " ";
+    cout << (&q == &p) << endl;
+    }
+
+    {
+    int   i = 2;
+    int*  p = &i;
+    int*& q = f(p);
+    cout << i          << " ";
+    cout << (&q == &p) << endl;
+    }
+
+    return 0;}
+/*
+CS371p: Quiz #15 (5 pts) <Aizhuldzy>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What distinguishes refinement overriding from replacement overriding?
+    [Sec. 10.7, Pg. 217]
+    (2 pts)
+
+the overriding method replaces the base version
+the overriding method runs in a addition to the base version
+*/
+
+/* -----------------------------------------------------------------------
+ 2. What is the output of the following?
+    (2 pts)
+
+0 0
+32 0
+32 -5
+*/
+
+#include <iostream> // cout, endl
+
+using namespace std;
+
+struct A {
+    static int c;
+    static int d;
+
+    A  ()    {c +=  1;}
+    A  (int) {c += 10;}
+    ~A ()    {d -=  1;}};
+
+int A::c = 0;
+int A::d = 0;
+
+int main () {
+    {
+    cout << A::c << " ";
+    cout << A::d << endl;
+    A a[5] = {2, 3, 4};
+    cout << A::c << " ";
+    cout << A::d << endl;
+    }
+    cout << A::c << " ";
+    cout << A::d << endl;
+
+    return 0;}
+/*
+CS371p: Quiz #2 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What happened in the three statements below?
+    (3 pts)
+
+a. added file "Add.txt"
+b. git add Add.txt
+c. git commit -m "..."
+*/
+
+% git status
+# On branch master
+nothing to commit (working directory clean)
+
+% <a. what happened here>
+
+% git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#   Add.txt
+nothing added to commit but untracked files present (use "git add" to track)
+
+% <b. what happened here>
+
+% git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file:   Add.txt
+#
+
+% <c. what happened here>
+
+% git status
+# On branch master
+nothing to commit (working directory clean)
+
+/* -----------------------------------------------------------------------
+ 2. What does the Sapir-Whorf hypothesis assert?
+    [Sec. 1.2.3, Pg. 5]
+    (1 pt)
+
+It may be possible for an individual working in one language to
+imagine thoughts or utter ideas that cannot in any way be translated,
+or even understood by individuals operating in a different linguistic
+framework.
+*/
+/*
+CS371p: Quiz #3 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. Show the cycle for 3.
+    What is the cycle length?
+    [Collatz]
+    (2 pts)
+
+3, 10, 5, 16, 8, 4, 2, 1
+8
+*/
+
+/* -----------------------------------------------------------------------
+ 2. Which of the following is true? Maybe more than one.
+    [Collatz]
+    (1 pt)
+
+a. (n / 2),  with n even, always produces an even
+b. (n / 2),  with n even, always produces an odd
+c. (3n + 1), with n odd,  always produces an even
+d. (3n + 1), with n odd,  always produces an odd
+
+c.
+*/
+
+/* -----------------------------------------------------------------------
+ 3. Given positive integers, b and e, let m = e / 2. If b < m, then
+    max_cycle_length(b, e) = max_cycle_length(m, e). True or False?
+    [Collatz]
+    (1 pt)
+
+True
+
+Consider b = 10, e = 100.
+Then m = 100 / 2 = 50.
+max_cycle_length(10, 100) = max_cycle_length(50, 100)
+All the numbers in the range [10, 49] can be mapped to numbers in the
+range [50, 100] by one or more doublings, so none of the numbers in the
+range [10, 49] could have a larger cycle length than the numbers in the
+range [50, 100].
+*/
+/*
+CS371p: Quiz #4 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What is the output of the following program?
+    (2 pts)
+
+5 11
+*/
+
+#include <iostream> // cout, endl
+
+using namespace std;
+
+int f (int n) {
+    return n + (n >> 1) + 1;}
+
+int main () {
+    cout << f(3) << " ";
+    cout << f(7) << endl;
+    return 0;}
+
+/* -----------------------------------------------------------------------
+ 2. In the context of Project #1: Collatz, what is f() computing?
+    (1 pt)
+
+For odd n it's computing (3n + 1) / 2.
+(3n + 1) / 2
+3n/2 + 1/2
+n + n/2 + 1/2
+n + n/2 + 1, because n is odd
+n + (n >> 1) + 1
+*/
+
+/* -----------------------------------------------------------------------
+ 3. Describe the three kinds of cache: lazy, eager, meta.
+    (1 pt)
+
+lazy: fill as you read
+eager: fill before you read
+meta: fill outside of program
+*/
+/*
+CS371p: Quiz #5 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. Describe the difference between a unit test and an acceptance test.
+    (2 pts)
+
+a unit test tests the return value and the side effects of an individual
+function or method
+an acceptance test tests the input/output behavior of an entire program
+*/
+
+/* -----------------------------------------------------------------------
+ 2. In C++ are assertions enabled or disabled by default?
+    How do you enable them or disable them?
+    (2 pts)
+
+enabled
+compile with -NDEBUG
+*/
+/*
+CS371p: Quiz #6 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. What is the output of the following program?
+    (4 pts)
+
+m1 f1 f2 m2 m4
+m1 f1 m3 m4
+*/
+
+#include <iostream> // cout, endl
+
+using namespace std;
+
+void f (bool b) {
+    cout << "f1 ";
+    if (b)
+        throw exception();
+    cout << "f2 ";}
+
+int main () {
+    try {
+        cout << "m1 ";
+        f(false);
+        cout << "m2 ";}
+    catch (exception& e) {
+        cout << "m3 ";}
+    cout << "m4 " << endl;
+
+    try {
+        cout << "m1 ";
+        f(true);
+        cout << "m2 ";}
+    catch (exception& e) {
+        cout << "m3 ";}
+    cout << "m4" << endl;
+
+    return 0;}
+/*
+CS371p: Quiz #7 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. Which of the following practices demonstrates effective pair
+    programming?
+    [All I Really Needed to Know about Pair Programming I Learned in
+     Kindergarten]
+    (1 pt)
+
+a. Each partner writing separate parts.
+b. Each partner writing both parts and then submitting the best.
+c. Each partner writing both parts and then submitting the best
+   combination.
+d. Sharing a monitor and keyboard while coding.
+e. One partner writing the interface and tests, the other the
+   implementation.
+
+d.
+*/
+
+/* -----------------------------------------------------------------------
+ 2. What is a checked exception?
+    C++ has checked exceptions. True or False?
+    (2 pts)
+
+an exception that must be caught or advertised as being thrown
+False
+*/
+
+/* -----------------------------------------------------------------------
+ 3. In C++ the order of the catch blocks doesn't matter. True or False?
+    (1 pt)
+
+False
+*/
+/*
+CS371p: Quiz #8 (5 pts) <Chuying>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. In C++, what four methods constitute the orthodox canonical class
+    form?
+    [Sec. 5.6.1, Pg. 115]
+    (2 pts)
+
+default constructor
+copy constructor
+copy assignment operator
+destructor
+*/
+
+/* -----------------------------------------------------------------------
+ 2. What is the output for the following?
+    [Australian Voting]
+    (2 pts)
+
+    1
+
+    4
+    Red
+    Green
+    Blue
+    Orange
+    1 2 3 4
+    2 1 3 4
+    2 3 1 4
+    1 2 3 4
+    3 4 1 2
+    4 3 2 1
+
+Red
+Green
+*/
+/*
+CS371p: Quiz #9 (5 pts) <Aizhuldyz>
+*/
+
+/* -----------------------------------------------------------------------
+ 1. In Java, describe the subjects and objects of the verbs implements
+    and extends.
+    Be precise.
+    (2 pts)
+
+interfaces can extend one or more interfaces
+classes can implement one or more interfaces
+classes can extend one class
+*/
+
+/* -----------------------------------------------------------------------
+ 2. What is the output of the following C++ code?
+    (2 pts)
+
+24
+24
+24
+40
+*/
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+
+template <typename T>
+class A {
+    int    i;
+    double d;
+    T      x;};
+
+int main () {
+    using namespace std;
+
+    assert(sizeof(char)   == 1);
+    assert(sizeof(int)    == 4);
+    assert(sizeof(double) == 8);
+
+    cout << sizeof(A<char>)     << endl;
+    cout << sizeof(A<int>)      << endl;
+    cout << sizeof(A<double>)   << endl;
+    cout << sizeof(A< A<int> >) << endl;
+
+    return 0;}
+// -------------
+// Arguments.c++
+// -------------
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+
+void f (int v, int* p, int& r) {
+    ++v;
+    ++(*p);
+    ++r;}
+
+void g (int p[]) {
+    assert(sizeof(p) == 8);
+    ++p;
+    ++p[0];
+    ++*p;}
+
+void h (int* p) {
+    assert(sizeof(p) == 8);
+    ++p;
+    ++p[0];
+    ++*p;}
+
+int main () {
+    using namespace std;
+    cout << "Arguments.c++" << endl;
+
+    {
+    int i = 2;
+    int j = 2;
+    int k = 2;
+    f(i, &j, k);
+    assert(i == 2);
+    assert(j == 3);
+    assert(k == 3);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    g(a);
+    assert(a[0] == 2);
+    assert(a[1] == 5);
+    assert(a[2] == 4);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    h(a);
+    assert(a[0] == 2);
+    assert(a[1] == 5);
+    assert(a[2] == 4);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// --------------
+// Arguments.java
+// --------------
+
+import java.util.Arrays;
+
+final class Arguments {
+    private static void f (int j) {
+        ++j;}
+
+    private static void g (String t) {
+        t += "def";}
+
+    private static void h (int[] b) {
+        ++b[1];}
+
+    public static void main (String[] args) {
+        System.out.println("Arguments.java");
+
+        {
+        int i = 2;
+        f(i);
+        assert i == 2;
+        }
+
+        {
+        String s = "abc";
+        g(s);
+        assert s.equals("abc");
+        assert s == "abc";
+        }
+
+        {
+        int[] a = {2, 3, 4};
+        h(a);
+        assert a != new int[]{2, 4, 4};
+        assert !a.equals(new int[]{2, 4, 4});
+        assert Arrays.equals(a, new int[]{2, 4, 4});
+        }
+
+        System.out.println("Done.");}}
+// ----------
+// Arrays.c++
+// ----------
+
+#include <algorithm> // copy, count, equal, fill
+#include <cassert>   // assert
+#include <cstddef>   // ptrdiff_t, size_t
+#include <iostream>  // cout, endl
+#include <memory>    // allocator, uninitialized_fill
+#include <string>    // string
+#include <vector>    // vector
+
+struct A {
+    int i;
+
+    std::string f () {
+        return "A::f";}};
+
+struct B : A {
+    int j;
+
+    std::string f () {
+        return "B::f";}};
+
+void f1 (int p[]) {
+    assert(sizeof(p) == 8);
+    ++p;
+    ++p[0];
+    ++*p;}
+
+void f2 (int* p) {
+    assert(sizeof(p) == 8);
+    ++p;
+    ++p[0];
+    ++*p;}
+
+int main () {
+    using namespace std;
+    cout << "Arrays.c++" << endl;
+
+    {
+    int a[] = {2, 3, 4};
+//  assert(a                     == &a);                     // error: comparison between distinct pointer types ‘int*’ and ‘int (*)[3]’ lacks a cast
+    assert(static_cast<void*>(a) == static_cast<void*>(&a));
+    assert(*a                    == a[0]);
+    assert(a                     == &a[0]);
+    assert(sizeof(a)             != sizeof(&a[0]));
+    assert(sizeof(a)             == 12);
+    assert(sizeof(&a[0])         == 8);
+//  ++a;                                                     // error: lvalue required as left operand of assignment
+    ++a[0];
+    assert(*a   == 3);
+//  assert(a[3] == 0);                                       // undefined
+    }
+
+    {
+    const size_t s    = 10;
+    const int    a[s] = {2, 3, 4};
+    assert(a[1]     == 3);
+    assert(*(a + 1) == 3);
+    assert(a[s - 1] == 0);
+//  ++a;                           // error: lvalue required as left operand of assignment
+//  ++a[1];                        // error: increment of read-only location
+    }
+
+    {
+    const size_t s = 10;
+//  const int    a[s];   // error: uninitialized const 'a'
+    int a[s];
+//  assert(a[0] == 0);   // undefined
+    }
+
+    {
+    const size_t s    = 10;
+    const int    a[s] = {};
+    assert(a[0] == 0);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    assert(a[1] == 3);
+    f1(a);
+    assert(a[1] == 5);
+    f2(a);
+    assert(a[1] == 7);
+    }
+
+    {
+    int        a[] = {2, 3, 4};
+//  int        b[] = a;             // error: initializer fails to determine size of 'b'
+    int* const b   = a;
+    assert(a         == b);
+    assert(sizeof(a) != sizeof(b));
+    assert(sizeof(a) == 12);
+    assert(sizeof(b) ==  8);
+    ++a[1];
+    assert(a[1] == 4);
+    assert(b[1] == 4);
+    }
+
+    {
+    int          a[] = {2, 3, 4};
+    const size_t s   = sizeof(a) / sizeof(a[0]);
+    int b[s];
+    copy(a, a + s, b);
+    assert(a != b);
+    assert(equal(a, a + s, b));
+    ++a[1];
+    assert(a[1] == 4);
+    assert(b[1] == 3);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    int b[] = {5, 6, 7};
+//  b = a;                                     // error: invalid array assignment
+    const size_t s = sizeof(a) / sizeof(a[0]);
+    copy(a, a + s, b);
+    assert(a != b);
+    assert(equal(a, a + s, b));
+    ++a[1];
+    assert(a[1] == 4);
+    assert(b[1] == 3);
+    }
+
+    {
+    const ptrdiff_t  s = 10;
+    const int        v =  2;
+          int* const a = new int[s];
+    assert(sizeof(a) == 8);
+    fill(a, a + s, v);
+    assert(count(a, a + s, v) == s);
+    assert(a[1] == v);
+    f1(a);
+    assert(a[1] == v + 2);
+    f2(a);
+    assert(a[1] == v + 4);
+    delete [] a;
+    }
+
+    {
+    const size_t     s = 10;
+    const int        v =  2;
+          int* const a = new int[s];
+    assert(sizeof(a) == 8);
+    fill(a, a + s, v);
+    int* const b = a;
+    assert(&a[1] == &b[1]);
+    int* const x = new int[s];
+    copy(a, a + s, x);
+    assert( a[1] ==  x[1]);
+    assert(&a[1] != &x[1]);
+    delete [] a;
+    delete [] x;
+    }
+
+    {
+    const size_t     s = 10;
+    const int        v =  2;
+          int* const a = new int[s];
+    assert(sizeof(a) == 8);
+    fill(a, a + s, v);
+    int* b = new int[s];
+    fill(b, b + s, v);
+//  b = a;                           // memory leak
+    copy(a, a + s, b);
+    assert( a[1] ==  b[1]);
+    assert(&a[1] != &b[1]);
+    delete [] a;
+    delete [] b;
+    }
+
+    {
+    allocator<int> x;
+    const ptrdiff_t  s = 10;
+    const int        v =  2;
+          int* const a = x.allocate(s);
+    assert(sizeof(a) == 8);
+    int* b = a;
+    int* e = a + s;
+    while (b != e) {
+        x.construct(b, v);
+        ++b;}
+    assert(count(a, a + s, v) == s);
+    b = a;
+    while (b != e) {
+        --e;
+        x.destroy(e);}
+    x.deallocate(a, s);
+    }
+
+    {
+//  B a[] = {A(), A(), A()};    // error: conversion from "A" to non-scalar type "B" requested
+    A a[] = {B(), B(), B()};    // slice
+    assert(a[1].f() == "A::f");
+    }
+    {
+//  int*    const a = new double[10]; // error: cannot convert 'double*' to 'int*    const' in initialization
+//  double* const a = new int[10];    // error: cannot convert 'int*'    to 'double* const' in initialization
+    }
+
+    {
+//  B* const a = new A[10];                      // error: invalid conversion from ‘A*’ to ‘B*’
+    A* const a = new B[10];                      // dangerous
+    assert(a[0].f() == "A::f");
+//  assert(a[1].f() == "A::f");                  // undefined
+//  delete [] a;                                 // undefined
+    assert(static_cast<B*>(a)[1].f() == "B::f");
+    delete [] static_cast<B*>(a);                // ~B::B() and ~A::A()
+    }
+
+    {
+    const size_t      s = 10;
+    const int         v =  2;
+          vector<int> x(s, v);
+    assert(x.size() == s);
+    assert(x[0]     == v);
+    vector<int> y(x);
+    assert( x ==  y);
+    assert(&x != &y);
+    vector<int> z(2 * s, v);
+    x = z;
+    assert( x ==  z);
+    assert(&x != &z);
+    }
+
+    {
+//  vector<A>* const p = new vector<B>; // error: cannot convert 'std::vector<B, std::allocator<B> >*' to 'std::vector<A, std::allocator<A> >* const' in initialization
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// -----------
+// Arrays.java
+// -----------
+
+import java.util.ArrayList;
+import java.util.List;
+
+final class Arrays {
+    private static void f (int[] a) {
+        assert a.length == 3;
+        ++a[1];}
+
+    private static int g (int... a) {
+        int s = 0;
+        for (final int v : a)
+            s += v;
+        return s;}
+
+    private static int h (int[] a) {
+        int s = 0;
+        for (final int v : a)
+            s += v;
+        return s;}
+
+    public static void main (String[] args) {
+        System.out.println("Arrays.java");
+
+        {
+        final int[] a = {2, 3, 4};
+        assert a.length == 3;
+        assert a[1]     == 3;
+        try {
+            assert a[3] == 0;
+            assert false;}
+        catch (ArrayIndexOutOfBoundsException e)
+            {}
+        }
+
+        {
+        final int[] a = new int[]{2, 3, 4};
+        assert a.length == 3;
+        assert a[1]     == 3;
+        }
+
+        {
+        final int   s = 10;
+        final int[] a = new int[s];
+        assert a.length == s;
+        assert a[1]     == 0;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final long  i = 1;
+//      assert a[i]       == 3;    // doesn't compile
+        assert a[(int) i] == 3;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        f(a);
+        assert a[1] == 4;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a;
+        assert a == b;
+        ++b[1];
+        assert a[1] == 4;
+        assert b[1] == 4;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a.clone();
+        assert a != b;
+        assert !a.equals(b);
+        assert java.util.Arrays.equals(a, b);
+        ++b[1];
+        assert a[1] == 3;
+        assert b[1] == 4;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = {2, 3, 4};
+        assert a != b;
+        assert !a.equals(b);
+        assert java.util.Arrays.equals(a, b);
+        }
+
+        {
+        final String[] a = {"abc", "def", "ghi"};
+        final String[] b = {"abc", "def", "ghi"};
+        assert a != b;
+        assert !a.equals(b);
+        assert java.util.Arrays.equals(a, b);
+        }
+
+        {
+        final String[] a = {new String("abc"), new String("def"), new String("ghi")};
+        final String[] b = {new String("abc"), new String("def"), new String("ghi")};
+        assert a != b;
+        assert !a.equals(b);
+        assert java.util.Arrays.equals(a, b);
+        }
+
+        {
+        final StringBuilder[] a = {new StringBuilder("abc"), new StringBuilder("def"), new StringBuilder("ghi")};
+        final StringBuilder[] b = {new StringBuilder("abc"), new StringBuilder("def"), new StringBuilder("ghi")};
+        assert a != b;
+        assert !a.equals(b);
+        assert !java.util.Arrays.equals(a, b);
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        System.arraycopy(a, 0, a, 1, 2);
+        assert java.util.Arrays.equals(a, new int[]{2, 2, 3});
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        System.arraycopy(a, 1, a, 0, 2);
+        assert java.util.Arrays.equals(a, new int[]{3, 4, 4});
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int   v = 5;
+        final int[] b = {v, v, v};
+        java.util.Arrays.fill(a, v);
+        assert java.util.Arrays.equals(a, b);
+        ++a[1];
+        assert a[1] == 6;
+        assert b[1] == 5;
+        }
+
+        {
+        final StringBuilder[] a = {new StringBuilder("abc"), new StringBuilder("def"), new StringBuilder("ghi")};
+        final StringBuilder   v = new StringBuilder("xyz");
+        final StringBuilder[] b = new StringBuilder[]{v, v, v};
+        java.util.Arrays.fill(a, v);
+        assert java.util.Arrays.equals(a, b);
+        a[1].append("t");
+        assert a[1].toString().equals("xyzt");
+        assert b[1].toString().equals("xyzt");
+        }
+
+        {
+//      final int[]    a = (int   []) new double[3]; // doesn't compile
+//      final double[] a = (double[]) new int[3];    // doesn't compile
+//      final String[] a = (String[]) new Object[3]; // ClassCastException
+        final Object[] a = new String[3];
+        }
+
+        {
+        final Object[] a = new String[] {"abc", "def", "ghi"};
+        assert a.length == 3;
+        assert a[1] == "def";
+        a[1] = "xyz";
+        assert a[1] == "xyz";
+        try {
+            a[1] = new StringBuilder("uvw");
+            assert false;}
+        catch (ArrayStoreException e)
+            {}
+        }
+
+        {
+        final Object[]     a = new String[] {"abc", "def", "ghi"};
+        final List<Object> x = java.util.Arrays.asList(a);
+        assert x.size() == 3;
+        assert x.get(1) == "def";
+        x.set(1, "xyz");
+        assert x.get(1) == "xyz";
+        assert a[1]     == "xyz";
+        try {
+            x.set(1, new StringBuilder("uvw"));
+            assert false;}
+        catch (ArrayStoreException e)
+            {}
+        try {
+            x.add("uvw");
+            assert false;}
+        catch (UnsupportedOperationException e)
+            {}
+        final Object[] b = x.toArray();
+        assert b.length == 3;
+        assert b[1] == "xyz";
+        b[1] = "def";
+        assert b[1]     == "def";
+        assert x.get(1) == "xyz";
+        assert a[1]     == "xyz";
+        try {
+            b[1] = new StringBuilder("uvw");
+            assert false;}
+        catch (ArrayStoreException e)
+            {}
+        }
+
+        {
+        final ArrayList<String> x = new ArrayList<String>(10);
+//      final ArrayList<Object> x = new ArrayList<String>(10); // doesn't compile
+        final ArrayList<?>      y = new ArrayList<String>(10);
+        x.add("abc");
+//      y.add("abc");                                          // doesn't compile
+        }
+
+        {
+        assert g()                      ==  0;
+        assert g(2)                     ==  2;
+        assert g(2, 3)                  ==  5;
+        assert g(2, 3, 4)               ==  9;
+        assert g(2, 3, 4, 5)            == 14;
+        assert g(new int[]{2, 3, 4, 5}) == 14;
+        }
+
+        {
+//      assert h()                      ==  0; // doesn't compile
+//      assert h(2)                     ==  2; // doesn't compile
+//      assert h(2, 3)                  ==  5; // doesn't compile
+//      assert h(2, 3, 4)               ==  9; // doesn't compile
+//      assert h(2, 3, 4, 5)            == 14; // doesn't compile
+        assert h(new int[]{2, 3, 4, 5}) == 14;
+        }
+
+        System.out.println("Done.");}}
+// --------------
+// Assertions.c++
+// --------------
+
+/*
+Turn OFF assertions at compile time with NDEBUG.
+% g++ -pedantic -std=c++0x -DNDEBUG -Wall Assertions.c++ -o Assertions.c++.app
+% Assertions.c++.app
+*/
+
+//#define NDEBUG
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+
+int cycle_length (int n) {
+    assert(n > 0);
+    int c = 0;
+    while (n > 1) {
+        if ((n % 2) == 0)
+            n = (n / 2);
+        else
+            n = (3 * n) + 1;
+        ++c;}
+    assert(c > 0);
+    return c;}
+
+int main () {
+    using namespace std;
+    cout << "Assertions.c++" << endl;
+
+    assert(cycle_length(1) == 1);
+    assert(cycle_length(5) == 6);
+
+    cout << "Done." << endl;
+    return 0;}
+
+/*
+Assertions.c++
+Assertion failed: (c > 0), function cycle_length, file Assertions.c++, line 25.
+*/
+// ---------------
+// Assertions.java
+// ---------------
+
+/*
+Turn ON assertions at run time with -ea.
+% javac -Xlint Assertions.java
+% java  -ea    Assertions
+*/
+
+final class Assertions {
+    public static int cycle_length (int n) {
+        assert n > 0;
+        int c = 0;
+        while (n > 1) {
+            if ((n % 2) == 0)
+                n = n / 2;
+            else
+                n = (3 * n) + 1;
+            ++c;}
+        assert c > 0;
+        return c;}
+
+    public static void main (String[] args) {
+        System.out.println("Assertions.java");
+
+        assert cycle_length(1) == 1;
+        assert cycle_length(5) == 6;
+
+        System.out.println("Done.");}}
+
+/*
+Assertions.java
+Exception in thread "main" java.lang.AssertionError
+    at Assertions.cycle_length(Assertions.java:21)
+    at Assertions.main(Assertions.java:27)
+*/
+// ---------
+// Cache.c++
+// ---------
+
+#include <cassert>  // assert
+#include <cstring>  // strcat, strcmp
+#include <iostream> // cout, endl
+
+int main () {
+    using namespace std;
+    cout << "Cache.c++" << endl;
+
+    {
+    const char* a = "abc";
+    const char* b = "abc";
+    assert(a == b);
+    }
+
+    {
+    const char a[] = "abc";
+    const char b[] = "abc";
+    assert(a != b);
+    assert(strcmp(a, b) == 0);
+    }
+
+    {
+    char a[4] = "a";
+    strcat(a, "bc");
+    const char* b = "abc";
+    assert(a != b);
+    assert(strcmp(a, b) == 0);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// ----------
+// Cache.java
+// ----------
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+final class Cache {
+    public static void main (String[] args) {
+        System.out.println("Cache.java");
+
+        {
+        int i = 2;
+        int j = 2;
+        assert i == j;
+        ++i;
+        assert i != j;
+        ++j;
+        assert i == j;
+        }
+
+        {
+        Integer x = new Integer(2);
+        Integer y = new Integer(2);
+        assert x            != y;
+        assert x.intValue() == y.intValue();
+        ++x;
+        assert x            != y;
+        assert x.intValue() != y.intValue();
+        ++y;
+        assert x            == y;
+        assert x.intValue() == y.intValue();
+        }
+
+        {
+        Integer x = 2;
+        Integer y = 2;
+        assert x == y;
+        ++x;
+        assert x != y;
+        }
+
+        {
+        Integer x = 128; // cache: [-128, 127]
+        Integer y = 128;
+        assert x != y;
+        --x;
+        --y;
+        assert x == y;
+        }
+
+        {
+        Long x = 128L;
+        Long y = 128L;
+        assert x != y;
+        --x;
+        --y;
+        assert x == y;
+        }
+
+        {
+        int  i = 2;
+//      Long x = 2;        // doesn't compile
+        Long x = (long) i;
+        }
+
+        {
+        long    j = 2;
+//      Integer x = j;       // doesn't compile
+        Integer x = (int) j;
+        }
+
+        {
+        int[]     a = {2, 3, 4};
+//      Integer[] b = a;         // doesn't compile
+        Integer[] b = {2, 3, 4};
+        }
+
+        {
+        String s = "abc";
+        String t = "abc";
+        assert s == t;
+        }
+
+        {
+        String s = "abc";
+        String t = "ab" + "c";
+        assert s == t;
+        }
+
+        {
+        String s = "abc";
+        String u = "ab";
+        String v = "c";
+        String t = u + v;
+        assert s != t;
+        assert s.equals(t);
+        }
+
+        System.out.println("Done.");}}
+// --------
+// Copy.c++
+// --------
+
+#include <algorithm> // copy
+#include <cassert>   // assert
+#include <cstring>   // strcmp, strlen
+#include <iostream>  // cout, endl
+
+char* copy_1 (const char* b, const char* e, char* x) {
+    while (b != e) {
+        *x = *b;
+        ++b;
+        ++x;}
+    return x;}
+
+template <typename II, typename OI>
+OI copy_2 (II b, II e, OI x) {
+    while (b != e) {
+        *x = *b;
+        ++b;
+        ++x;}
+    return x;}
+
+int main () {
+    using namespace std;
+    cout << "Copy.c++" << endl;
+
+    const char a[] = "abCbA";
+    const int  s   = strlen(a);
+
+    {
+    char x[] = "xxxxxxxx";
+    const char* const p = copy(a, a + s, x);
+    assert(strcmp(x, "abCbAxxx") == 0);
+    assert(p - x == s);
+    assert(strncmp(x, "abCbA", s) == 0);
+    }
+
+    {
+    char x[] = "xxxxxxxx";
+    const char* const p = copy_1(a, a + s, x);
+    assert(strcmp(x, "abCbAxxx")  == 0);
+    assert(p - x == s);
+    assert(strncmp(x, "abCbA", s) == 0);
+    }
+
+    {
+    char x[] = "xxxxxxxx";
+    const char* const p = copy_2(a, a + s, x);
+    assert(strcmp(x, "abCbAxxx")  == 0);
+    assert(p - x == s);
+    assert(strncmp(x, "abCbA", s) == 0);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------
+// Equal.c++
+// ---------
+
+#include <algorithm> // equal
+#include <cassert>   // assert
+#include <list>      // list
+#include <iostream>  // cout, endl
+
+bool equal_1 (int* b, int* e, int* c) {
+    while (b != e) {
+        if (*b != *c)
+            return false;
+        ++b;
+        ++c;}
+    return true;}
+
+template <typename II1, typename II2>
+bool equal_2 (II1 b, II1 e, II2 c) {
+    while (b != e) {
+        if (*b != *c)
+            return false;
+        ++b;
+        ++c;}
+    return true;}
+
+int main () {
+    using namespace std;
+    cout << "Equal.c++" << endl;
+
+    int a[] = {2, 3, 4};
+    int b[] = {2, 3, 4, 5};
+
+    assert(equal_1(a, a + 3, b));
+    assert(equal_2(a, a + 3, b));
+    assert(equal  (a, a + 3, b));
+
+    list<int> x(a, a + 3);
+    list<int> y(b, b + 4);
+
+    assert(equal  (x.begin(), x.end(), y.begin()));
+//  assert(equal_1(x.begin(), x.end(), y.begin())); // error: cannot convert ‘std::_List_iterator<int>’ to ‘int*’ for argument ‘1’ to ‘bool equal_1(int*, int*, int*)’
+    assert(equal_2(x.begin(), x.end(), y.begin()));
+
+    cout << "Done." << endl;
+    return 0;}
+// --------------
+// Exceptions.c++
+// --------------
+
+#include <cassert>   // assert
+#include <cstring>   // strcmp
+#include <iostream>  // cout, endl
+#include <stdexcept> // domain_error
+#include <string>    // string
+
+int f (bool b) {
+    if (b)
+        throw std::domain_error("abc");
+    return 0;}
+
+int main () {
+    using namespace std;
+    cout << "Exceptions.c++" << endl;
+
+    try {
+        assert(f(false) == 0);
+        }
+    catch (domain_error& e) {
+        assert(false);}
+
+    try {
+        assert(f(true) == 1);
+        assert(false);
+        }
+    catch (domain_error& e) {
+//      assert(       e                == "abc");  // error: no match for ‘operator==’ in ‘e == "abc"’
+        assert(       e.what()         != "abc");  // warning: comparison with string literal results in unspecified behavior
+        assert(strcmp(e.what(), "abc") == 0);
+        assert(string(e.what())        == "abc");}
+
+    domain_error x("abc");
+    logic_error& y = x;
+    exception&   z = y;
+    assert(&z == &x);
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------------
+// Exceptions.java
+// ---------------
+
+final class Exceptions {
+    private static int f (boolean b) throws IllegalAccessException {
+        if (b)
+            throw new IllegalAccessException("abc");
+        return 0;}
+
+    public static void main (String[] args) {
+        System.out.println("Exceptions.java");
+
+        try {
+            assert f(false) == 0;
+            }
+        catch (IllegalAccessException e) {
+            assert false;}
+
+        try {
+            assert f(true) == 1;
+            assert false;
+            }
+        catch (IllegalAccessException e) {
+//          assert e                == "java.lang.IllegalAccessException: abc";   // incomparable types: java.lang.IllegalAccessException and java.lang.String
+            assert e.toString()     != "java.lang.IllegalAccessException: abc";
+            assert e.toString().equals("java.lang.IllegalAccessException: abc");}
+
+        assert IllegalAccessException.class.getSuperclass() == Exception.class;
+        assert              Exception.class.getSuperclass() == Throwable.class;
+        assert              Throwable.class.getSuperclass() ==    Object.class;
+        assert                 Object.class.getSuperclass() == null;
+
+        Exception x = new IllegalAccessException();
+        Throwable y = x;
+        Object    z = y;
+        assert z == x;
+
+        System.out.println("Done.");}}
+// ---------------
+// Exceptions2.c++
+// ---------------
+
+#include <cassert>   // assert
+#include <cstring>   // strcmp
+#include <iostream>  // cout, endl
+#include <memory>    // auto_ptr
+#include <stdexcept> // domain_error
+
+int f (bool b) {
+    if (b)
+        throw std::domain_error("abc");
+    return 0;}
+
+int main () {
+    using namespace std;
+    cout << "Exceptions2.c++" << endl;
+
+    try {
+        int* const a = new int[10];
+        assert(f(false) == 0);
+        delete [] a;
+        }
+    catch (domain_error& e) {
+        assert(false);}
+
+    try {
+        int* const a = new int[10];
+        assert(f(true) == 1);
+        assert(false);
+        delete [] a;                           // memory leak
+        }
+    catch (domain_error& e) {
+        assert(strcmp(e.what(), "abc") == 0);}
+
+    try {
+        const auto_ptr<int> p(new int[10]);
+        assert(f(true) == 1);
+        assert(false);
+        }
+    catch (domain_error& e) {
+        assert(strcmp(e.what(), "abc") == 0);}
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------------
+// Exceptions3.c++
+// ---------------
+
+#include <cassert>   // assert
+#include <cstring>   // strcmp
+#include <exception> // exception
+#include <iostream>  // cout, endl;
+
+struct My_Exception : std::exception {
+    const char* what () const throw () {
+        return "My_Exception";}};
+
+int main () {
+    using namespace std;
+    cout << "Exceptions3.c++" << endl;
+
+    My_Exception x;
+    exception&   y = x;
+    assert(strcmp(y.what(), "My_Exception") == 0);
+
+    cout << "Done." << endl;
+    return 0;}
+// --------
+// Fill.c++
+// --------
+
+#include <algorithm> // fill
+#include <cassert>   // assert
+#include <cstring>   // strcmp, strlen
+#include <iostream>  // cout, endl
+
+void fill_1 (char* b, char* e, char v) {
+    while (b != e) {
+        *b = v;
+        ++b;}}
+
+template <typename FI, typename T>
+void fill_2 (FI b, FI e, const T& v) {
+    while (b != e) {
+        *b = v;
+        ++b;}}
+
+int main () {
+    using namespace std;
+    cout << "Fill.c++" << endl;
+
+    {
+          char a[] = "abCbA";
+    const int  s   = strlen(a);
+    fill_1(a, a + s, 'x');
+    assert(strcmp(a, "xxxxx") == 0);
+    }
+
+    {
+          char a[] = "abCbA";
+    const int  s   = strlen(a);
+    fill_2(a, a + s, 'x');
+    assert(strcmp(a, "xxxxx") == 0);
+    }
+
+    {
+          char a[] = "abCbA";
+    const int  s   = strlen(a);
+    fill(a, a + s, 'x');
+    assert(strcmp(a, "xxxxx") == 0);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------
+// Hello.c++
+// ---------
+
+#include <iostream> // cout, endl
+
+int main () {
+    using namespace std;
+    cout << "Nothing to be done." << endl;
+    return 0;}
+
+/*
+% g++ -v
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.6/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.6.3-1ubuntu5' --with-bugurl=file:///usr/share/doc/gcc-4.6/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --enable-objc-gc --disable-werror --with-arch-32=i686 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5)
+*/
+
+/*
+% g++ -pedantic -std=c++0x -Wall Hello.c++ -o Hello
+% Hello
+Nothing to be done.
+*/
+// ----------
+// Hello.java
+// ----------
+
+final class Hello {
+    public static void main (String[] args) {
+        System.out.println("Nothing to be done.");}}
+
+/*
+% javac -version
+javac 1.6.0_24
+*/
+
+/*
+% javac -Xlint Hello.java
+% java  -ea    Hello
+Nothing to be done.
+*/
+// -------------
+// Operators.c++
+// -------------
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+
+int main () {
+    using namespace std;
+    cout << "Operators.c++" << endl;
+
+    {
+    int i = 2;
+    int j = -i;      // negation
+    assert(i ==  2);
+    assert(j == -2);
+//  ++-i;            // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 2;
+    int j = ++i;    // pre-increment
+    assert(i == 3);
+    assert(j == 3);
+    ++++i;
+    assert(i == 5);
+    (++i)++;
+    assert(i == 7);
+    }
+
+    {
+    int i = 2;
+    int j = i++;    // post-increment
+    assert(i == 3);
+    assert(j == 2);
+//  i++++;          // error: lvalue required as increment operand
+//  ++(i++);        // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 2;
+    int j = 3;
+    int k = (i = j);
+    assert(i == 3);
+    assert(j == 3);
+    assert(k == 3);
+    ++(i = j);
+    assert(i == 4);
+    }
+
+    {
+    int i = 2;
+    int j = 3;
+    int k = i + j;  // addition
+    assert(i == 2);
+    assert(j == 3);
+    assert(k == 5);
+//  ++(i + j);      // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 2;
+    int j = 3;
+    int k = (i += j);
+    assert(i == 5);
+    assert(j == 3);
+    assert(k == 5);
+    ++(i += j);
+    assert(i == 9);
+    }
+
+    {
+    int i = 12;
+    int j = 10;
+    int k = i / j;   // integer division
+    assert(i == 12);
+    assert(j == 10);
+    assert(k ==  1);
+//  ++(i / j);       // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 12;
+    int j = 10;
+    int k = (i /= j);
+    assert(i ==  1);
+    assert(j == 10);
+    assert(k ==  1);
+    ++(i /= j);
+    assert(i ==  1);
+    }
+
+    {
+    int i = 12;
+    int j = 10;
+    int k = i % j;   // integer mod
+    assert(i == 12);
+    assert(j == 10);
+    assert(k ==  2);
+//  ++(i % j);       // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 12;
+    int j = 10;
+    int k = (i %= j);
+    assert(i ==  2);
+    assert(j == 10);
+    assert(k ==  2);
+    ++(i %= j);
+    assert(i ==  3);
+    }
+
+    {
+    int i = 2;
+    int j = 3;
+    int k = i << j;  // bit shift left
+    assert(i == 2);
+    assert(j == 3);
+    assert(k == 16);
+//  ++(i << j);      // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 2;
+    int j = 3;
+    int k = (i <<= j);
+    assert(i ==  16);
+    assert(j ==   3);
+    assert(k ==  16);
+    ++(i <<= j);
+    assert(i == 129);
+    }
+
+    {
+    int i = 10;       // 0000 0000 0000 1010
+    int j = ~i;       // 1111 1111 1111 0101: bit complement
+    int k = ~i + 1;   // 1111 1111 1111 0110
+    assert(i ==  10);
+    assert(j == -11);
+    assert(k == -10);
+//  ++~i;             // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 10;      // 1010
+    int j = 12;      // 1100
+    int k = i & j;   // 1000: bit and
+    assert(i == 10);
+    assert(j == 12);
+    assert(k ==  8);
+//  ++(i & j);       // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 10;
+    int j = 12;
+    int k = (i &= j);
+    assert(i ==  8);
+    assert(j == 12);
+    assert(k ==  8);
+    ++(i &= j);
+    assert(i ==  9);
+    }
+
+    {
+    int i = 10;      // 1010
+    int j = 12;      // 1100
+    int k = i | j;   // 1110: bit or
+    assert(i == 10);
+    assert(j == 12);
+    assert(k == 14);
+//  ++(i | j);       // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 10;
+    int j = 12;
+    int k = (i |= j);
+    assert(i == 14);
+    assert(j == 12);
+    assert(k == 14);
+    ++(i |= j);
+    assert(i == 15);
+    }
+
+    {
+    int i = 10;      // 1010
+    int j = 12;      // 1100
+    int k = i ^ j;   // 0110: bit exclusive or
+    assert(i == 10);
+    assert(j == 12);
+    assert(k ==  6);
+//  ++(i ^ j);       // error: lvalue required as increment operand
+    }
+
+    {
+    int i = 10;
+    int j = 12;
+    int k = (i ^= j);
+    assert(i ==  6);
+    assert(j == 12);
+    assert(k ==  6);
+    ++(i ^= j);
+    assert(i == 11);
+    }
+
+    {
+    int i = 10;      // 1010
+    int j = 12;      // 1100
+    i ^= j;
+    assert(i ==  6); // 0110
+    assert(j == 12); // 1100
+    j ^= i;
+    assert(i ==  6); // 0110
+    assert(j == 10); // 1010
+    i ^= j;
+    assert(i == 12); // 1100
+    assert(j == 10); // 1010
+    }
+
+    {
+    int i = 10;
+    int j = 12;
+    i += j;
+    assert(i == 22);
+    assert(j == 12);
+    j = i - j;
+    assert(i == 22);
+    assert(j == 10);
+    i -= j;
+    assert(i == 12);
+    assert(j == 10);
+    }
+
+    {
+    bool a = true;
+    bool b = true;
+    bool c = false;
+    assert(a && b);
+    assert(!(a && c));
+    assert(a || b);
+    assert(a || c);
+    assert((a && b) == !(!a || !b));
+    assert((a && c) == !(!a || !c));
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    assert(a[1] == 3);   // array index
+    ++a[1];
+    assert(a[1] == 4);
+    }
+
+    {
+    const int a[] = {2, 3, 4};
+    assert(a[1] == 3);
+//  ++a[1];                    // error: increment of read-only location
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// --------------
+// Operators.java
+// --------------
+
+class Operators {
+    public static void main (String[] args) {
+        System.out.println("Operators.java");
+
+        {
+        int i = 2;
+        int j = -i;     // negation
+        assert i ==  2;
+        assert j == -2;
+//      ++-i;           // error: unexpected type
+        }
+
+        {
+        int i = 2;
+        int j = ++i;   // pre-increment
+        assert i == 3;
+        assert j == 3;
+//      ++++i;         // error: unexpected type
+        }
+
+        {
+        int i = 2;
+        int j = i++;   // post-increment
+        assert i == 3;
+        assert j == 2;
+//      i++++;         // error: unexpected type
+        }
+
+        {
+        int i = 2;
+        int j = 3;
+        int k = (i = j);
+        assert i == 3;
+        assert j == 3;
+        assert k == 3;
+//      ++(i = j);       // error: unexpected type
+        }
+
+        {
+        int i = 2;
+        int j = 3;
+        int k = i + j; // addition
+        assert i == 2;
+        assert j == 3;
+        assert k == 5;
+//      ++(i + j);     // error: unexpected type
+        }
+
+        {
+        int i = 2;
+        int j = 3;
+        int k = (i += j);
+        assert i == 5;
+        assert j == 3;
+        assert k == 5;
+//      ++(i += j);       // error: unexpected type
+        }
+
+        {
+        int i = 12;
+        int j = 10;
+        int k = i / j;  // integer division
+        assert i == 12;
+        assert j == 10;
+        assert k ==  1;
+        }
+
+        {
+        int i = 12;
+        int j = 10;
+        int k = (i /= j);
+        assert i ==  1;
+        assert j == 10;
+        assert k ==  1;
+        }
+
+        {
+        int i = 12;
+        int j = 10;
+        int k = i % j;  // integer mod
+        assert i == 12;
+        assert j == 10;
+        assert k ==  2;
+        }
+
+        {
+        int i = 12;
+        int j = 10;
+        int k = (i %= j);
+        assert i ==  2;
+        assert j == 10;
+        assert k ==  2;
+        }
+
+        {
+        int i = 2;
+        int j = 3;
+        int k = i << j; // bit shift left
+        assert i ==  2;
+        assert j ==  3;
+        assert k == 16;
+        }
+
+        {
+        int i = 2;
+        int j = 3;
+        int k = (i <<= j);
+        assert i == 16;
+        assert j ==  3;
+        assert k == 16;
+        }
+
+        {
+        int i = 10;      // 0000 0000 0000 1010
+        int j = ~i;      // 1111 1111 1111 0101: bit complement
+        int k = ~i + 1;  // 1111 1111 1111 0110
+        assert i ==  10;
+        assert j == -11;
+        assert k == -10;
+        }
+
+        {
+        int i = 10;     // 1010
+        int j = 12;     // 1100
+        int k = i & j;  // 1000: bit and
+        assert i == 10;
+        assert j == 12;
+        assert k ==  8;
+        }
+
+        {
+        int i = 10;
+        int j = 12;
+        int k = (i &= j);
+        assert i ==  8;
+        assert j == 12;
+        assert k ==  8;
+        }
+
+        {
+        int i = 10;     // 1010
+        int j = 12;     // 1100
+        int k = i | j;  // 1110: bit or
+        assert i == 10;
+        assert j == 12;
+        assert k == 14;
+        }
+
+        {
+        int i = 10;
+        int j = 12;
+        int k = (i |= j); // 1110
+        assert i == 14;
+        assert j == 12;
+        assert k == 14;
+        }
+
+        {
+        int i = 10;     // 1010
+        int j = 12;     // 1100
+        int k = i ^ j;  // 0110: bit exclusive or
+        assert i == 10;
+        assert j == 12;
+        assert k ==  6;
+        }
+
+        {
+        int i = 10;
+        int j = 12;
+        int k = (i ^= j);
+        assert i ==  6;
+        assert j == 12;
+        assert k ==  6;
+        }
+
+        {
+        int i = 10;     // 1010
+        int j = 12;     // 1100
+        i ^= j;
+        assert i ==  6; // 0110
+        assert j == 12; // 1100
+        j ^= i;
+        assert i ==  6; // 0110
+        assert j == 10; // 1010
+        i ^= j;
+        assert i == 12; // 1100
+        assert j == 10; // 1010
+        }
+
+        {
+        int i = 10;
+        int j = 12;
+        i += j;
+        assert i == 22;
+        assert j == 12;
+        j = i - j;
+        assert i == 22;
+        assert j == 10;
+        i -= j;
+        assert i == 12;
+        assert j == 10;
+        }
+
+        {
+        boolean a = true;
+        boolean b = true;
+        boolean c = false;
+        assert a && b;
+        assert !(a && c);
+        assert a || b;
+        assert a || c;
+        assert (a && b) == !(!a || !b);
+        assert (a && c) == !(!a || !c);
+        }
+
+        {
+        int[] a = {2, 3, 4};
+        assert a[1] == 3;    // array index
+        ++a[1];
+        assert a[1] == 4;
+        }
+
+        {
+        assert new int[]{2, 3, 4}[1] == 3; // array index
+        ++new int[]{2, 3, 4}[1];           // ?
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        assert a[1] == 3;    // array index
+        ++a[1];
+        assert a[1] == 4;
+        }
+
+        {
+        String s = "a";
+        String t = "bc";
+        String u = s + t;       // string concatenation
+        assert u != "abc";
+        assert u.equals("abc");
+        }
+
+        System.out.println("Done.");}}
+// -----------
+// Returns.c++
+// -----------
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+
+int f () {
+    int i = 2;
+    return i;}
+
+int* g () {
+    int j = 2;
+    return &j;} // warning: address of local variable 'j' returned
+
+int& h () {
+    int k = 2;
+    return k;} // warning: reference to local variable 'k' returned
+
+int main () {
+    using namespace std;
+    cout << "Returns.c++" << endl;
+
+    {
+    int v = f();
+    assert(v == 2);
+//  int* p = &f();  // error: lvalue required as unary ‘&’ operand
+//  int& r = f();   // error: invalid initialization of non-const reference of type ‘int&’ from a temporary of type ‘int’
+    }
+
+    {
+    int v = *g();
+//  assert(v == 2);  // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    int* p = g();
+//  assert(*p == 2); // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    int& r = *g();
+//  assert(r == 2);  // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    }
+
+    {
+    int v = h();
+//  assert(v == 2);  // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    int* p = &h();
+//  assert(*p == 2); // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    int& r = h();
+//  assert(r == 2);  // Valgrind: Conditional jump or move depends on uninitialised value(s)
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------------
+// StackVsHeap.c++
+// ---------------
+
+#include <cassert>  // assert
+#include <cstring>  // strcmp
+#include <iostream> // cout, endl
+
+int f (int n) {
+    if (n == 0)
+        return 0;
+    return 1 + f(n - 1);}
+
+int main () {
+    using namespace std;
+    cout << "StackVsHeap.c++" << endl;
+
+    {
+    assert(f(1234567L) == 1234567L); // 12345678L will fail
+    }
+
+    try {
+        int* a = new int[12345678912345L];}
+    catch (const bad_alloc& e) {
+        assert(false);}
+
+    try {
+        int* a = new int[123456789123456L];
+        assert(false);}
+    catch (const bad_alloc& e) {
+        assert(strcmp(e.what(), "std::bad_alloc") == 0);}
+
+    cout << "Done." << endl;
+    return 0;}
+
+/*
+*** [StackVsHeap.c++x] Segmentation fault
+*/
+
+/*
+malloc: *** mmap(size=493827156496384) failed (error code=12)
+*** error: can't allocate region
+*** set a breakpoint in malloc_error_break to debug
+*/
+// ----------------
+// StackVsHeap.java
+// ----------------
+
+final class StackVsHeap {
+    private static int f (int n) {
+        if (n == 0)
+            return 0;
+        return 1 + f(n - 1);}
+
+    public static void main (String[] args) {
+        System.out.println("StackVsHeap.java");
+
+        try {
+            assert f(1234) == 1234;}
+        catch (StackOverflowError e) {
+            assert false;}
+
+        try {
+            assert f(12345) == 12345;
+            assert false;}
+        catch (StackOverflowError e) {
+            assert e.toString().equals("java.lang.StackOverflowError");}
+
+        try {
+            final int[] a = new int[12345678];}
+        catch (OutOfMemoryError e) {
+            assert false;}
+
+        try {
+            final int[] a = new int[123456789];
+            assert false;}
+        catch (OutOfMemoryError e) {
+            assert e.toString().equals("java.lang.OutOfMemoryError: Java heap space");}
+
+        System.out.println("Done.");}}
+// --------
+// Test.c++
+// --------
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+#include <string>   // string
+
+using namespace std;
+
+void f (int& r, int& s) {
+    cout << (&r == &s) << endl;}
+
+int main () {
+    cout << "Test.c++" << endl;
+
+    int i = 2;
+    f(i, i);
+
+    cout << "Done." << endl;
+    return 0;}
+// ---------
+// Test.java
+// ---------
+
+class A {}
+class B extends A {}
+
+final class Test {
+
+    public static void main (String[] args) {
+        System.out.println("Test.java");
+
+        A x = new A();
+        B y = new B();
+        System.out.println(x == y);
+
+        System.out.println("Done.");}}
+// ---------
+// Types.c++
+// ---------
+
+#include <cassert>  // assert
+#include <iostream> // cout, endl
+#include <limits>   // numeric_limits
+#include <sstream>  // ostringstream
+
+template <typename T>
+struct A {
+    int    i;
+    double d;
+    T      x;};
+
+template <typename T>
+struct B {
+    int    i;
+    T      x;
+    double d;};
+
+union U {
+    int  i;
+    long j;};
+
+enum Color {red, green, blue};
+
+int main () {
+    using namespace std;
+    cout << "Types.c++" << endl;
+
+    bool b1 = true;
+    bool b2 = false;
+    assert(sizeof(b1)   ==  1);
+    assert(sizeof(b2)   ==  1);
+    assert(sizeof(bool) ==  1);
+
+    char c = 'a';
+    assert(sizeof(c)    ==  1);
+    assert(sizeof(char) ==  1);
+    assert(numeric_limits<         char>::min() == -128);
+    assert(numeric_limits<         char>::max() ==  127);
+    assert(numeric_limits<unsigned char>::min() ==    0);
+    assert(numeric_limits<unsigned char>::max() ==  255);
+
+    short s = 2;
+    assert(sizeof(s)     ==  2);
+    assert(sizeof(short) ==  2);
+    assert(numeric_limits<         short>::min() == -32768);
+    assert(numeric_limits<         short>::max() ==  32767);
+    assert(numeric_limits<unsigned short>::min() ==      0);
+    assert(numeric_limits<unsigned short>::max() ==  65535);
+
+    int i = 2;
+    assert(sizeof(i)   ==  4);
+    assert(sizeof(int) ==  4);
+    assert(numeric_limits<         int>::min() == -2147483648);
+    assert(numeric_limits<         int>::max() ==  2147483647);
+    assert(numeric_limits<unsigned int>::min() ==  0);
+    assert(numeric_limits<unsigned int>::max() ==  4294967295U);
+
+    long j = 2L;
+    assert(sizeof(j)    ==  8);
+    assert(sizeof(long) ==  8);
+    assert(numeric_limits<         long>::min() == -9223372036854775807L - 1);
+    assert(numeric_limits<         long>::max() ==  9223372036854775807L);
+    assert(numeric_limits<unsigned long>::min() ==                    0);
+    assert(numeric_limits<unsigned long>::max() == 18446744073709551615UL);
+
+    float f = 2.34F;
+    assert(sizeof(f)     == 4);
+    assert(sizeof(float) == 4);
+    {
+    ostringstream out;
+    out << numeric_limits<float>::min();
+    assert(out.str() == "1.17549e-38");
+    }
+    {
+    ostringstream out;
+    out << numeric_limits<float>::max();
+    assert(out.str() == "3.40282e+38");
+    }
+
+    double d = 2.34;
+    assert(sizeof(d)      == 8);
+    assert(sizeof(double) == 8);
+    {
+    ostringstream out;
+    out << numeric_limits<double>::min();
+    assert(out.str() == "2.22507e-308");
+    }
+    {
+    ostringstream out;
+    out << numeric_limits<double>::max();
+    assert(out.str() == "1.79769e+308");
+    }
+
+    long double ld = 2.34L;
+    assert(sizeof(ld)          == 16);
+    assert(sizeof(long double) == 16);
+    {
+    ostringstream out;
+    out << numeric_limits<long double>::min();
+    assert(out.str() == "3.3621e-4932");
+    }
+    {
+    ostringstream out;
+    out << numeric_limits<long double>::max();
+    assert(out.str() == "1.18973e+4932");
+    }
+
+    {
+    char a[] = "abc";
+    assert(sizeof(a) == 4 * sizeof(char));
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    assert(sizeof(a) == 3 * sizeof(int));
+    }
+
+    {
+    A<int> x = {2, 3.45, 6};
+    assert(sizeof(A<int>) == 24);
+    assert(sizeof(x)      == 24);
+    }
+
+    {
+    B<int> x = {2, 3, 4.56};
+    assert(sizeof(B<int>) == 16);
+    assert(sizeof(x)      == 16);
+    }
+
+    {
+    A<double> x = {2, 3.45, 6.78};
+    assert(sizeof(A<double>) == 24);
+    assert(sizeof(x)         == 24);
+    }
+
+    {
+    B<double> x = {2, 3.45, 6.78};
+    assert(sizeof(B<double>) == 24);
+    assert(sizeof(x)         == 24);
+    }
+
+    {
+    A< A<int> > x = {2, 3.45, {2, 3.45, 6}};
+    assert(sizeof(A< A<int> >) == 40);
+    assert(sizeof(x)           == 40);
+    }
+
+    {
+    B< B<int> > x = {2, {2, 3, 4.56}, 3.45};
+    assert(sizeof(B< B<int> >) == 32);
+    assert(sizeof(x)           == 32);
+    }
+
+    {
+    U u1 = {2};
+    U u2 = {2L};
+    assert(sizeof(U)  == 8);
+    assert(sizeof(u1) == 8);
+    assert(sizeof(u2) == 8);
+    }
+
+    {
+    Color c1 = red;
+    Color c2 = green;
+    Color c3 = blue;
+    assert(sizeof(Color) == 4);
+    assert(sizeof(c1)    == 4);
+    assert(sizeof(c2)    == 4);
+    assert(sizeof(c3)    == 4);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// ----------
+// Types.java
+// ----------
+
+interface I<T> {
+    void f ();}
+
+class A<T> implements I<T> {
+    private int    i;
+    private double d;
+    private T      x;
+
+    public void f () {}}
+
+class B<T> extends A<T>
+    {}
+
+enum Color {red, green, blue}
+
+final class Types {
+    public static void main (String[] args) {
+        System.out.println("Types.java");
+
+        boolean b = false;                                 // 1 bit
+        char    c = 'a';                                   // 2 bytes
+
+        byte bt = 2;                                       // 1 byte
+        assert Byte.MIN_VALUE == -128;
+        assert Byte.MAX_VALUE ==  127;
+
+        short s = 2;                                       // 2 bytes
+        assert Short.MIN_VALUE == -32768;
+        assert Short.MAX_VALUE ==  32767;
+
+        int i = 2;                                         // 4 bytes
+        assert Integer.MIN_VALUE == -2147483648;
+        assert Integer.MAX_VALUE ==  2147483647;
+
+        long j = 2L;                                       // 8 bytes
+        assert Long.MIN_VALUE == -9223372036854775808L;
+        assert Long.MAX_VALUE ==  9223372036854775807L;
+
+        float f = 2.3F;                                    // 4 bytes
+        assert Float.MAX_VALUE == 3.4028235E38F;
+        assert Float.MIN_VALUE == 1.4E-45F;
+
+        double d = 2.3;                                    // 8 bytes
+        assert Double.MAX_VALUE == 1.7976931348623157E308;
+        assert Double.MIN_VALUE == 4.9E-324;
+
+        String st = "abc";
+
+        int[] a = {2, 3, 4};
+
+        I<Integer> x = new A<Integer>();
+        assert x instanceof A;
+        assert x instanceof I;
+        assert x instanceof Object;
+
+        I<Double> y = new B<Double>();
+        assert y instanceof B;
+        assert y instanceof A;
+        assert y instanceof I;
+        assert y instanceof Object;
+
+        assert I.class.isInterface();
+        assert I.class.getInterfaces().length == 0;
+        assert I.class.getSuperclass()        == null;
+
+        assert !A.class.isInterface();
+        assert A.class.getInterfaces().length == 1;
+        assert A.class.getInterfaces()[0]     == I.class;
+        assert A.class.getSuperclass()        == Object.class;
+
+        Color c1 = Color.red;
+        Color c2 = Color.green;
+        Color c3 = Color.blue;
+
+        System.out.println("Done.");}}
+// -------------
+// Variables.c++
+// -------------
+
+#include <algorithm> // equal
+#include <cassert>   // assert
+#include <iostream>  // cout, endl
+
+int main () {
+    using namespace std;
+    cout << "Variables.c++" << endl;
+
+    {
+    int i = 2;
+    int v = i;
+    ++v;
+    assert(i  == 2);
+    assert(v  == 3);
+    assert(&i != &v);
+    }
+
+    {
+    int  j = 2;
+    int* p = &j;
+    ++*p;
+    assert(j  == 3);
+    assert(*p == 3);
+    assert(p  == &j);
+    }
+
+    {
+    int  k = 2;
+    int& r = k;
+    ++r;
+    assert(k  == 3);
+    assert(r  == 3);
+    assert(&r == &k);
+    }
+
+    {
+    int   i = 2;
+    int*  p = &i;
+    int*& r = p;
+    ++*r;
+    assert(i  == 3);
+    assert(*p == 3);
+    assert(*r == 3);
+    assert(&r == &p);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    assert(*a == a[0]);
+    assert(a  == &a[0]);
+    assert(sizeof(a)     != sizeof(&a[0]));
+    assert(sizeof(a)     == 12);
+    assert(sizeof(&a[0]) == 8);
+//  ++a;                                    // error: lvalue required as left operand of assignment
+    ++a[1];
+    ++*(a + 1);
+    assert(a[1]     == 5);
+    assert(*(a + 1) == 5);
+//  assert(a[3]     == 0);                  // undefined
+    }
+
+    {
+    int a[] = {2, 3, 4};
+//  int b[] = a;                    // error: initializer fails to determine size of 'b'
+    int* b  = a;
+    assert(a         == b);
+    assert(sizeof(a) != sizeof(b));
+    assert(sizeof(a) == 12);
+    assert(sizeof(b) ==  8);
+    ++b[1];
+    assert(a[1] == 4);
+    assert(b[1] == 4);
+    }
+
+    {
+    int a[] = {2, 3, 4};
+    int b[] = {2, 3, 4};
+    assert(a != b);
+    assert(equal(a, a + 3, b));
+    ++b[1];
+    assert(a[1] == 3);
+    assert(b[1] == 4);
+    }
+
+    cout << "Done." << endl;
+    return 0;}
+// --------------
+// Variables.java
+// --------------
+
+import java.util.Arrays;
+
+final class Variables {
+    public static void main (String[] args) {
+        System.out.println("Variables.java");
+
+        {
+        int i = 2;
+        int v = i;
+        ++v;
+        assert i == 2;
+        assert v == 3;
+        }
+
+        {
+        Integer i = 2;
+        Integer v = i;
+        ++v;
+        assert i == 2;
+        assert v == 3;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        assert a.length == 3;
+        assert a[1]     == 3;
+        try {
+            assert a[3] == 0;
+            assert false;}
+        catch (ArrayIndexOutOfBoundsException e)
+            {}
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a;
+        assert a == b;
+        ++b[1];
+        assert a[1] == 4;
+        assert b[1] == 4;
+        }
+
+        {
+        final int[] a = {2, 3, 4};
+        final int[] b = a.clone();
+        assert a != b;
+        assert !a.equals(b);
+        assert Arrays.equals(a, b);
+        ++b[1];
+        assert a[1] == 3;
+        assert b[1] == 4;
+        }
+
+        System.out.println("Done.");}}
